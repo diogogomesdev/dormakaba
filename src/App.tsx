@@ -1,11 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Overview } from './overview/page/Overview';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+// Pages
+import { Login } from './pages/Login';
+import { Overview } from './pages/Overview';
+import { Resource } from './pages/Resource';
+import { ResourceDetail } from './pages/ResourceDetail';
+
 
 function App() {
   return (
-    <Overview />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/overview" element={<Overview/>}/>
+        <Route path="/resource" element={<Resource/>}/>
+        <Route path="/resourceDetail" element={<ResourceDetail/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

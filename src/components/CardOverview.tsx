@@ -17,7 +17,7 @@ export const CardOverview: React.FC<Props> = ({type, text, img}) => {
     return(
             <Card sx={{ maxWidth: 355 }} className="card_overview">
                 <CardActionArea>
-                    <img src={img} className="card_image"/>
+                    <img src={img} alt={type} className="card_image"/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {type}
