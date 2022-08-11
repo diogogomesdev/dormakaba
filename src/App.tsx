@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/overview" element={<Overview/>}/>
-        <Route path="/resource" element={<Resource/>}/>
+        <Route path="/resource/:id" element={<Resource/>}/>
         <Route path="/resourceDetail" element={<ResourceDetail/>}/>
       </Routes>
     </BrowserRouter>

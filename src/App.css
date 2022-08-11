@@ -93,3 +93,32 @@ body {
 .buttoon{
   margin-top: 20px;
 }
+
+/* Card Resource */
+
+.card_resource{
+  width: 90%;
+  height: 100px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.textField_resource{
+  width: 70%;
+  color: white;
+  background-color: rgb(255, 255, 255);
+}
+
+
+/* General */
+
+.div_search{
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  background-color: black;
+  margin-bottom: 20px;
+  padding: 10px;
+}
