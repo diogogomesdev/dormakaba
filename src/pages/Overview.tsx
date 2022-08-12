@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from '../images/logo.svg';
 
 // Components
@@ -14,12 +14,30 @@ import speciesIMG from '../images/species.webp';
 
 // React router dom
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+// Redux
+import store from '../redux/store';
 
 export const Overview: React.FC = () => {
+
+    const history = useNavigate();
+
+    useEffect(() => {
+        if(Object.keys(store.getState()).length === 0)history('/');
+    }, [store]);
+
+    const logout = () => {
+        store.dispatch({
+            type: "logout"
+        });
+        history('/');
+    }
 
     return(
         <div className="main">
             <img src={logo} alt="logo" className="logo"/>
+            <p style={{color:"white"}} onClick={logout}>Logout</p>
             <Link to="/resource/films"><CardOverview type="Films" text="Find your favorite films within the Star Wars universe" img={filmsIMG}/></Link>
             <Link to="/resource/species"><CardOverview type="Species" text="Research the differente species within the Star Wars universe" img={speciesIMG}/></Link>
             <Link to="/resource/people"><CardOverview type="People" text="Search persons or characters within the Star Wars universe" img={peopleIMG}/></Link>

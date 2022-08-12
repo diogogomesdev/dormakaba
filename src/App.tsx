@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Login/>}/>
         <Route path="/overview" element={<Overview/>}/>
         <Route path="/resource/:id" element={<Resource/>}/>
-        <Route path="/resourceDetail" element={<ResourceDetail/>}/>
+        <Route path="/resource/:id/:idItem" element={<ResourceDetail/>}/>
       </Routes>
     </BrowserRouter>
   );
