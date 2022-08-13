@@ -14,10 +14,10 @@ export const Logout: React.FC<Props> = ({type, url}) => {
     // Managing authentication - if logout redirect to login page  process.env.
     useEffect(() => {
         var authData = JSON.parse( localStorage.getItem('authData') || '{}');
-        if(authData.user === "luke" && authData.pass === "skywalker"){
+        if(authData.user === process.env.REACT_APP_USERNAME && authData.pass === process.env.REACT_APP_PASSWORD){
             store.dispatch({
                 type: "login",
-                payload: "luke"
+                payload: process.env.REACT_APP_USERNAME
             });
         }
         if(Object.keys(store.getState()).length === 0)history('/');

@@ -32,14 +32,14 @@ export const Login: React.FC = () => {
 
     // Login function
     const login = () => {
-        if(username === 'luke' && password === 'skywalker'){
+        if(username === process.env.REACT_APP_USERNAME && password === process.env.REACT_APP_PASSWORD){
             localStorage.setItem(
                 'authData', 
                 JSON.stringify({user: username, pass: password})
             );
             store.dispatch({
                 type: "login",
-                payload: "luke"
+                payload: process.env.REACT_APP_USERNAME
             });
             history('/overview');
         }else{
@@ -50,7 +50,7 @@ export const Login: React.FC = () => {
     // Auto login
     useEffect(() => {
         var authData = JSON.parse( localStorage.getItem('authData') || '{}');
-        if(authData.user === 'luke' && authData.pass === 'skywalker'){
+        if(authData.user === process.env.REACT_APP_USERNAME && authData.pass === process.env.REACT_APP_PASSWORD){
             history('/overview');
         }
     },[history]);
