@@ -1,5 +1,12 @@
 import logo from '../../images/logo.svg';
 
+// Material UI
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { useParams } from 'react-router-dom';
+import { Logout } from '../../components/Logout';
+
 interface person {
     name: string;
     height: string;
@@ -23,64 +30,33 @@ interface Props {
 
 export const People: React.FC<Props> = ({data}) => {
 
+    var param = useParams();
+    var url = "resource/" + param.id;
+
    return(
         <div className="main">
+            <Logout type="complete" url={url}/>
             <img src={logo} alt="logo" className="logo"/>
-            <h1 style={{color:"white"}}>{data.name}</h1>
-            <div className="detail_page">
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Name</p>
-                    <p className="detailPage_value">Luke Skywalker</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Skin color</p>
-                    <p className="detailPage_value">Fair</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Mass</p>
-                    <p className="detailPage_value">77</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Gender</p>
-                    <p className="detailPage_value">Male</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Hair color</p>
-                    <p className="detailPage_value">Blond</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Eye color</p>
-                    <p className="detailPage_value">Blue</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Birth year</p>
-                    <p className="detailPage_value">19 BBY</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Height</p>
-                    <p className="detailPage_value">172</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Homeworld</p>
-                    <p className="detailPage_value">LINK</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Films</p>
-                    <p className="detailPage_value">ARRAY LINKS</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Species</p>
-                    <p className="detailPage_value">ARRAY LINKS</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Starships</p>
-                    <p className="detailPage_value">ARRAY LINKS</p>
-                </div>
-                <div className="detail_page_element">
-                    <p className="detailPage_label">Vehicles</p>
-                    <p className="detailPage_value">ARRAY LINKS</p>
-                </div>
-            </div>
+            <h1 style={{color:"white", fontSize:"50px", marginBottom:"5px", marginTop:"10px"}}>{data.name}</h1>
+
+            <Card sx={{ maxWidth:300 }} className="card_detail">
+                <CardContent>
+                    <Typography variant="h6">Gender</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.gender}</Typography>
+                    <Typography variant="h6">Birth_year</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.birth_year}</Typography>
+                    <Typography variant="h6">Height</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.height}</Typography>
+                    <Typography variant="h6">Mass</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.mass}</Typography>
+                    <Typography variant="h6">Hair color</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.hair_color}</Typography>
+                    <Typography variant="h6">Skin color</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.skin_color}</Typography>
+                    <Typography variant="h6">Eye color</Typography>
+                    <Typography variant="body1" color="text.secondary">{data.eye_color}</Typography>
+                </CardContent>
+            </Card>
         </div>
    )
 };

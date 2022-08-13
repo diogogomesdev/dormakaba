@@ -10,6 +10,8 @@ import { Vehicle } from "./detailPages/Vehicle";
 import { Film } from "./detailPages/Film";
 import { Planet } from "./detailPages/Planet";
 
+// Material UI
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const ResourceDetail: React.FC = () => {
 
@@ -33,9 +35,8 @@ export const ResourceDetail: React.FC = () => {
     };
 
     useEffect(() => {
-
         sendRequest(url);
-    }, []);
+    }, [url]);
 
     if(data){
         if(param.id === "people") return <People data={data}/>
@@ -45,7 +46,13 @@ export const ResourceDetail: React.FC = () => {
         else if(param.id === "starships") return <Starship data={data}/>
         else return <Specie data={data}/>
     }else{
-        return <h1>Loading</h1>
+        return(
+            <div className="main">
+                <img src={logo} alt="logo" className="logo"/>
+                <h1 style={{color:"white"}}>LOADING...</h1>
+                <CircularProgress disableShrink />
+            </div>
+        )
     }
 
 };
