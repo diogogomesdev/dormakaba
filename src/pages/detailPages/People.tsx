@@ -1,11 +1,14 @@
-import logo from '../../images/logo.svg';
+// Components
+import { Logout } from '../../components/Logout';
+import { LogoImage } from '../../components/LogoImage';
+
+// React router
+import { useParams } from 'react-router-dom';
 
 // Material UI
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { useParams } from 'react-router-dom';
-import { Logout } from '../../components/Logout';
 
 interface person {
     name: string;
@@ -27,7 +30,6 @@ interface Props {
     data: person;
 }
 
-
 export const People: React.FC<Props> = ({data}) => {
 
     var param = useParams();
@@ -36,9 +38,8 @@ export const People: React.FC<Props> = ({data}) => {
    return(
         <div className="main">
             <Logout type="complete" url={url}/>
-            <img src={logo} alt="logo" className="logo"/>
+            <LogoImage />
             <h1 style={{color:"white", fontSize:"50px", marginBottom:"5px", marginTop:"10px"}}>{data.name}</h1>
-
             <Card sx={{ maxWidth:300 }} className="card_detail">
                 <CardContent>
                     <Typography variant="h6">Gender</Typography>

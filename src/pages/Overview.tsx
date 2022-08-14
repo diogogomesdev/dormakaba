@@ -1,8 +1,9 @@
 import React from "react";
-import logo from '../images/logo.svg';
 
 // Components
 import { CardOverview } from "../components/CardOverview";
+import { Logout } from "../components/Logout";
+import { LogoImage } from "../components/LogoImage";
 
 // Images
 import vehiclesIMG from '../images/vehicle.jpg';
@@ -15,15 +16,12 @@ import speciesIMG from '../images/species.webp';
 // React router dom
 import { Link } from "react-router-dom";
 
-// Redux
-import { Logout } from "../components/Logout";
-
 export const Overview: React.FC = () => {
 
     return(
         <div className="main">
             <Logout type="notComplete" />
-            <img src={logo} alt="logo" className="logo"/>
+            <LogoImage />
             <h1 style={{color:"white", fontSize:"50px", marginBottom:"20px", marginTop:"10px"}}>Overview</h1>
             <Link to="/resource/films"><CardOverview type="Films" text="Find your favorite films within the Star Wars universe" img={filmsIMG}/></Link>
             <Link to="/resource/species"><CardOverview type="Species" text="Research the differente species within the Star Wars universe" img={speciesIMG}/></Link>

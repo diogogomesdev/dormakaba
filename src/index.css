@@ -5,20 +5,10 @@ body {
     sans-serif;
 }
 
-.App {
-  text-align: center;
-}
-
 .main{
   background-image: url("./images/back2.png");
   min-height: 100vh;
   text-align: center;
-}
-
-.logo{
-  width: 180px;
-  display: block;
-  margin: auto;
 }
 
 .card_overview{

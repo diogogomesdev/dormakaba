@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import logo from '../images/logo.svg';
+
+// Components
+import { LogoImage } from "../components/LogoImage";
 
 // React router
 import { useNavigate } from 'react-router-dom';
@@ -57,12 +59,12 @@ export const Login: React.FC = () => {
 
     return(
         <div className="main">
-            <img src={logo} alt="logo" className="logo"/>
+            <LogoImage />
             <div className="login">
             <TextField label="Username" className="textField" margin="normal" size="small" value={username} onChange={usernameChange}/>
             <TextField label="Password" className="textField" margin="normal" size="small" type="password" value={password} onChange={passwordChange}/>
-            <Button variant="contained" color="success" onClick={login}  sx={{ marginTop: "10px" }}>Login</Button>
-            {error ? <p style={{  color: "red", marginTop: "5px"}}>Wrong username or password</p> : <span></span>}
+            <Button variant="contained" color="success" sx={{ marginTop: "10px" }} onClick={login}>Login</Button>
+            {error ? <p style={{color:"red", marginTop:"5px"}}>Wrong username or password</p> : <span></span>}
             </div>
         </div>
     )

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import logo from '../images/logo.svg';
+
+// Components
+import { LogoImage } from "../components/LogoImage";
 
 // react router dom
 import {useParams} from "react-router-dom";
@@ -48,7 +50,7 @@ export const ResourceDetail: React.FC = () => {
     }else{
         return(
             <div className="main">
-                <img src={logo} alt="logo" className="logo"/>
+                <LogoImage />
                 <h1 style={{color:"white"}}>LOADING...</h1>
                 <CircularProgress disableShrink />
             </div>
