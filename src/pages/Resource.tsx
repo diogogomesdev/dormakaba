@@ -12,10 +12,8 @@ import { useParams} from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-
-// Material UI folder
-import { BootstrapButton } from '../customMaterialUI/Button';
 import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 export const Resource: React.FC = () => {
 
@@ -111,7 +109,7 @@ export const Resource: React.FC = () => {
                 <h1 style={{color:"white", fontSize:"50px", marginBottom:"5px", marginTop:"10px"}}>{title}</h1>
                 <div className="div_search">
                     <TextField id="standard-search" label="Search" type="search" variant="standard" className="textField_resource" size="small" onChange={changeSearchQuery}/>
-                    <BootstrapButton variant="contained" color="primary" className="botrf" onClick={search}>Search</BootstrapButton>
+                    <Button variant="contained" sx={{fontSize: 13,width: "12%",height: "45px",marginLeft: "10px"}} onClick={search}>Search</Button>
                 </div>
                 {loading === false && data ? 
                     data.map((p) => (

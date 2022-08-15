@@ -35,10 +35,12 @@ export const Login: React.FC = () => {
     // Login function
     const login = () => {
         if(username === process.env.REACT_APP_USERNAME && password === process.env.REACT_APP_PASSWORD){
+            // Store login at browser local storage
             localStorage.setItem(
                 'authData', 
                 JSON.stringify({user: username, pass: password})
             );
+            // Store login using redux
             store.dispatch({
                 type: "login",
                 payload: process.env.REACT_APP_USERNAME
@@ -61,7 +63,7 @@ export const Login: React.FC = () => {
         <div className="main">
             <LogoImage />
             <div className="login">
-            <TextField label="Username" className="textField" margin="normal" size="small" value={username} onChange={usernameChange}/>
+            <TextField label="Username" className="textField" margin="normal" size="small" value={username} onChange={usernameChange} />
             <TextField label="Password" className="textField" margin="normal" size="small" type="password" value={password} onChange={passwordChange}/>
             <Button variant="contained" color="success" sx={{ marginTop: "10px" }} onClick={login}>Login</Button>
             {error ? <p style={{color:"red", marginTop:"5px"}}>Wrong username or password</p> : <span></span>}
