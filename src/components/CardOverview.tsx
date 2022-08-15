@@ -12,12 +12,14 @@ interface Props {
     img: string;
 }
 
+//display:"inline-block";margin-right:"10px";margin-left:"10px";margin-bottom:"20px"
+
 export const CardOverview: React.FC<Props> = ({type, text, img}) => {
 
     return(
-            <Card sx={{ maxWidth: 355 }} className="card_overview">
+        <Card sx={{ maxWidth: 355, display: "inline-block", marginRight:"10px",marginLeft:"10px",marginBottom:"20px"}}>
                 <CardActionArea>
-                    <img src={img} alt={type} className="card_image"/>
+                    <img src={img} alt={type} style={{width:"100%",height:"170px",display:"block",margin:"auto"}}/>
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {type}

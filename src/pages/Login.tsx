@@ -63,8 +63,23 @@ export const Login: React.FC = () => {
         <div className="main">
             <LogoImage />
             <div className="login">
-            <TextField label="Username" className="textField" margin="normal" size="small" value={username} onChange={usernameChange} />
-            <TextField label="Password" className="textField" margin="normal" size="small" type="password" value={password} onChange={passwordChange}/>
+            <TextField 
+                sx={{width:"90%",backgroundColor:"white"}} 
+                label="Username" 
+                margin="normal" 
+                size="small" 
+                value={username} 
+                onChange={usernameChange}
+            />
+            <TextField 
+                sx={{width:"90%",backgroundColor:"white"}} 
+                label="Password" 
+                margin="normal" 
+                size="small" 
+                type="password" 
+                value={password} 
+                onChange={passwordChange}
+            />
             <Button variant="contained" color="success" sx={{ marginTop: "10px" }} onClick={login}>Login</Button>
             {error ? <p style={{color:"red", marginTop:"5px"}}>Wrong username or password</p> : <span></span>}
             </div>

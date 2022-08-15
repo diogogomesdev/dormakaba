@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // Components
 import { LogoImage } from "../components/LogoImage";
 
-// react router dom
+// React router
 import {useParams} from "react-router-dom";
 import { People } from "./detailPages/People";
 import { Specie } from "./detailPages/Specie";
